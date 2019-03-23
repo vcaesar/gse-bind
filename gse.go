@@ -14,6 +14,7 @@ import "C"
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/go-ego/gse"
 )
@@ -30,11 +31,54 @@ func sf(err error) string {
 	return fmt.Sprintf("%s", err)
 }
 
+func toStr(arr interface{}) string {
+	return strings.Trim(fmt.Sprint(arr), "[]")
+}
+
 //export GetVersion
 func GetVersion() *C.char {
 	s := gse.GetVersion()
 	return ch(s)
 }
 
+var seg gse.Segmenter
+
+//export LoadDict
+func LoadDict(path *C.char) *C.char {
+	err := seg.LoadDict(str(path))
+
+	return ch(sf(err))
+}
+
+//export AddToken
+func AddToken(text *C.char, freq int, pos string) {
+	seg.AddToken(str(text), freq, pos)
+}
+
+//export AddTokenForce
+func AddTokenForce(text *C.char, freq int, pos string) {
+	seg.AddTokenForce(str(text), freq, pos)
+}
+
+//export Cut
+func Cut(sentence *C.char, hmm bool) *C.char {
+	arr := seg.Cut(str(sentence), hmm)
+
+	return ch(toStr(arr))
+}
+
+//export CutAll
+func CutAll(sentence *C.char) *C.char {
+	arr := seg.CutAll(str(sentence))
+
+	return ch(toStr(arr))
+}
+
+//export CutSearch
+func CutSearch(sentence *C.char, hmm bool) *C.char {
+	arr := seg.CutSearch(str(sentence), hmm)
+
+	return ch(toStr(arr))
+}
 
 func main() {} // Required but ignored
