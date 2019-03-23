@@ -51,13 +51,13 @@ func LoadDict(path *C.char) *C.char {
 }
 
 //export AddToken
-func AddToken(text *C.char, freq int, pos string) {
-	seg.AddToken(str(text), freq, pos)
+func AddToken(text *C.char, freq int, pos *C.char) {
+	seg.AddToken(str(text), freq, str(pos))
 }
 
 //export AddTokenForce
-func AddTokenForce(text *C.char, freq int, pos string) {
-	seg.AddTokenForce(str(text), freq, pos)
+func AddTokenForce(text *C.char, freq int, pos *C.char) {
+	seg.AddTokenForce(str(text), freq, str(pos))
 }
 
 //export Cut
