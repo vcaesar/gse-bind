@@ -23,15 +23,15 @@ function getVersion() {
     lib.GetVersion();
 }
 
-function loadDict(path) {
+function loadDict(path = "zh") {
     return lib.LoadDict(path);
 }
 
-function addToken(text, freq, pos) {
+function addToken(text, freq, pos = "") {
     lib.AddToken(text, freq, pos);
 }
 
-function addTokenForce(text, freq, pos) {
+function addTokenForce(text, freq, pos = "") {
     lib.AddTokenForce(text, freq, pos);
 }
 
@@ -44,7 +44,7 @@ function find(text) {
     };
 }
 
-function cut(str, hmm) {
+function cut(str, hmm = false) {
     return lib.Cut(str, hmm).split(" ");
 }
 
@@ -52,6 +52,6 @@ function cutAll(str) {
     return lib.CutAll(str).split(" ");
 }
 
-function cutSearch(str, hmm) {
+function cutSearch(str, hmm = false) {
     return lib.CutSearch(str, hmm).split(" ");
 }
