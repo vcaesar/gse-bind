@@ -1,4 +1,3 @@
-
 declare module "gse" {
     export function getVerson(): string;
     export function loadDict(dict: string): void;

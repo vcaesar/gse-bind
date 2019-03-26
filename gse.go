@@ -60,6 +60,11 @@ func AddTokenForce(text *C.char, freq int, pos *C.char) {
 	seg.AddTokenForce(str(text), freq, str(pos))
 }
 
+//export Find
+func Find(text *C.char) (int, bool) {
+	return seg.Find(str(text))
+}
+
 //export Cut
 func Cut(sentence *C.char, hmm bool) *C.char {
 	arr := seg.Cut(str(sentence), hmm)
