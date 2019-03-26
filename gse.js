@@ -1,14 +1,18 @@
 // var ffi = require('ffi-napi');
 var ffi = require('ffi');
+const path = require('path');
+
 var Struct = require("ref-struct");
 
-
+//
 var findS = Struct({
     freq: 'long',
     ok: 'bool'
 })
 
-var lib = ffi.Library("gse", {
+const bin = path.join(__dirname, './gse');
+
+var lib = ffi.Library(bin, {
     'GetVersion': ['string', []],
     'LoadDict': ['string', ['string']],
     'AddToken': ['void', ['string', 'long', 'string']],
@@ -55,3 +59,12 @@ function cutAll(str) {
 function cutSearch(str, hmm = false) {
     return lib.CutSearch(str, hmm).split(" ");
 }
+
+exports.getVersion = getVersion;
+exports.loadDict = loadDict;
+exports.addToken = addToken;
+exports.addTokenForce = addTokenForce;
+exports.find = find;
+exports.cut = cut;
+exports.cutAll = cutAll;
+exports.cutSearch = cutSearch;
