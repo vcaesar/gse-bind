@@ -1,0 +1,34 @@
+{
+    "name": "gse",
+    "version": "0.10.0",
+    "description": "node efficient text segmentation",
+    "main": "gse.js",
+    "typings": "gse.ts",
+    "scripts": {
+        "build": "go get -v github.com/vcaesar/gocs && gocs -n gse"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vcaesar/gse.git"
+    },
+    "keywords": [
+        "jieba",
+        "gse",
+        "chinese",
+        "segment",
+        "中文分词",
+        "结巴分词"
+    ],
+    "author": "vcaesar",
+    "license": "Apache-2.0",
+    "gypfile": true,
+    "bugs": {
+        "url": "https://github.com/vcaesar/gse/issues"
+    },
+    "homepage": "https://github.com/vcaesar/gse",
+    "dependencies": {
+        "ffi": "^2.3.0",
+        "ref-struct": "^1.1.0"
+    },
+    "__npminstall_done": false
+}
