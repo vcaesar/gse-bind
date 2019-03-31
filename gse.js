@@ -17,6 +17,7 @@ var lib = ffi.Library(bin, {
     'LoadDict': ['string', ['string']],
     'AddToken': ['void', ['string', 'long', 'string']],
     'AddTokenForce': ['void', ['string', 'long', 'string']],
+    'CalcToken': ['void', []],
     'Find': [findS, ['string']],
     'Cut': ['string', ['string', 'bool']],
     'CutAll': ['string', ['string']],
@@ -39,9 +40,12 @@ function addTokenForce(text, freq, pos = "") {
     lib.AddTokenForce(text, freq, pos);
 }
 
+function calcToken() {
+    lib.CalcToken();
+}
+
 function find(text) {
     var s = lib.Find(text);
-
     return {
         freq: s.freq,
         ok: s.ok
@@ -64,6 +68,8 @@ exports.getVersion = getVersion;
 exports.loadDict = loadDict;
 exports.addToken = addToken;
 exports.addTokenForce = addTokenForce;
+exports.calcToken = calcToken;
+
 exports.find = find;
 exports.cut = cut;
 exports.cutAll = cutAll;
