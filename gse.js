@@ -18,6 +18,7 @@ var lib = ffi.Library(bin, {
     'AddToken': ['void', ['string', 'long', 'string']],
     'AddTokenForce': ['void', ['string', 'long', 'string']],
     'CalcToken': ['void', []],
+    //
     'Find': [findS, ['string']],
     'Cut': ['string', ['string', 'bool']],
     'CutAll': ['string', ['string']],
