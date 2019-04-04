@@ -1,12 +1,18 @@
 # gse-bind
 
-Go efficient text segmentation, binding other language.
+Go 高性能分词, binding 其他编程语言.
 
-[简体中文](https://github.com/vcaesar/gse-bind/blob/master/README_zh.md)
-
-# Install gse
+# 安装 gse
 ```
 npm install gse
+```
+or 
+
+```
+sudo cnpm install gse
+```
+```
+npm --registry=http://r.cnpmjs.org install gse
 ```
 
 ## example
@@ -18,7 +24,7 @@ gse.loadDict();
 console.log(gse.cut("我在大雨刚停的夜晚", true));
 ```
 
-# Build from source code:
+从源码部署:
 
 # Install gse
 ```
@@ -36,7 +42,7 @@ go get -v github.com/vcaesar/gocs
 gocs -n gse
 ```
 
-## Install npm modules 
+## 安装 npm modules 
 
 ```
 npm install

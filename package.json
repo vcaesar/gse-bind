@@ -6,8 +6,7 @@
     "typings": "gse.ts",
     "scripts": {
         "build": "go get -v github.com/vcaesar/gocs && gocs -n gse",
-        "install": "npm run build",
-        "prebuild": "prebuild --all"
+        "install": "npm run build"
     },
     "repository": {
         "type": "git",
@@ -29,11 +28,7 @@
     "homepage": "https://github.com/vcaesar/gse-bind",
     "dependencies": {
         "ffi": "^2.3.0",
-        "ref-struct": "^1.1.0",
-        "prebuild-install": "^5.2.5"
-    },
-    "devDependencies ": {
-        "prebuild": "^8.2.1"
+        "ref-struct": "^1.1.0"
     },
     "__npminstall_done": false
 }
