@@ -31,7 +31,7 @@ console.log(gse.cut("我在大雨刚停的夜晚", true));
 go get -u github.com/go-ego/gse
 ```
 
-### [Build-tools](github.com/vcaesar/gocs)
+### [Build-tools](https://github.com/vcaesar/gocs)
 ```
 go get -v github.com/vcaesar/gocs
 ```
