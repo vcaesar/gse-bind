@@ -41,3 +41,9 @@ gocs -n gse
 ```
 npm install
 ```
+
+### python
+
+```
+pip install cffi
+```
