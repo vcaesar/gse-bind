@@ -1,6 +1,6 @@
 {
     "name": "gse",
-    "version": "0.10.0",
+    "version": "0.40.0",
     "description": "node efficient text segmentation",
     "main": "gse.js",
     "typings": "gse.ts",
