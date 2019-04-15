@@ -30,6 +30,9 @@ console.log(gse.cut("我在大雨刚停的夜晚", true));
 ```
 go get -u github.com/go-ego/gse
 ```
+```
+git clone https://github.com/vcaesar/gse-bind
+```
 
 ### [Build-tools](https://github.com/vcaesar/gocs)
 ```
@@ -37,6 +40,10 @@ go get -v github.com/vcaesar/gocs
 ```
 
 ### Building
+
+```
+cd gse-bind
+```
 
 ```
 gocs -n gse
