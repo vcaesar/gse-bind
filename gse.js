@@ -80,7 +80,7 @@ exports.loadDict = loadDict;
 exports.addToken = addToken;
 exports.addTokenForce = addTokenForce;
 exports.calcToken = calcToken;
-
+//
 exports.find = find;
 exports.cut = cut;
 exports.cutAll = cutAll;
