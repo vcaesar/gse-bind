@@ -27,7 +27,7 @@
     },
     "homepage": "https://github.com/vcaesar/gse-bind",
     "dependencies": {
-        "ffi": "^2.3.0",
+        "ffi-napi": "^4.0.3",
         "ref-struct": "^1.1.0"
     },
     "__npminstall_done": false

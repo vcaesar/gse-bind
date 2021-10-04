@@ -51,13 +51,15 @@ func LoadDict(path *C.char) *C.char {
 }
 
 //export AddToken
-func AddToken(text *C.char, freq int, pos *C.char) {
-	seg.AddToken(str(text), freq, str(pos))
+func AddToken(text *C.char, freq float64, pos *C.char) *C.char {
+	err := seg.AddToken(str(text), freq, str(pos))
+	return ch(sf(err))
 }
 
 //export AddTokenForce
-func AddTokenForce(text *C.char, freq int, pos *C.char) {
-	seg.AddTokenForce(str(text), freq, str(pos))
+func AddTokenForce(text *C.char, freq float64, pos *C.char) *C.char {
+	err := seg.AddTokenForce(str(text), freq, str(pos))
+	return ch(sf(err))
 }
 
 //export CalcToken
@@ -66,27 +68,27 @@ func CalcToken() {
 }
 
 //export Find
-func Find(text *C.char) (int, bool) {
+func Find(text *C.char) (float64, string, bool) {
 	return seg.Find(str(text))
 }
 
 //export Cut
-func Cut(sentence *C.char, hmm bool) *C.char {
-	arr := seg.Cut(str(sentence), hmm)
+func Cut(text *C.char, hmm bool) *C.char {
+	arr := seg.Cut(str(text), hmm)
 
 	return ch(toStr(arr))
 }
 
 //export CutAll
-func CutAll(sentence *C.char) *C.char {
-	arr := seg.CutAll(str(sentence))
+func CutAll(text *C.char) *C.char {
+	arr := seg.CutAll(str(text))
 
 	return ch(toStr(arr))
 }
 
 //export CutSearch
-func CutSearch(sentence *C.char, hmm bool) *C.char {
-	arr := seg.CutSearch(str(sentence), hmm)
+func CutSearch(text *C.char, hmm bool) *C.char {
+	arr := seg.CutSearch(str(text), hmm)
 
 	return ch(toStr(arr))
 }

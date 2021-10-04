@@ -21,17 +21,17 @@ if is_64b:
 else:
     ffi.cdef("typedef int GoInt;\n")
 
-
 ffi.cdef("""
 	typedef struct {
-		GoInt freq;
+		double freq;
+        char* pos;
 		bool ok;
 	} Find_r;
 
 	char* GetVersion();
 	char* LoadDict(char* p0);
-	void AddToken(char* p0, GoInt p1, char* p2);
-	void AddTokenForce(char* p0, GoInt p1, char* p2);
+	char* AddToken(char* p0, double p1, char* p2);
+	char* AddTokenForce(char* p0, double p1, char* p2);
 	void CalcToken();
 
 	//
@@ -64,22 +64,23 @@ def loadDict(path="zh"):
 
 
 def addToken(text, freq, pos=""):
-    lib.AddToken(ch(text), freq, ch(pos))
+    return lib.AddToken(ch(text), freq, ch(pos))
 
 
 def addTokenForce(text, freq, pos=""):
-    lib.AddTokenForce(ch(text), freq, ch(pos))
+    return lib.AddTokenForce(ch(text), freq, ch(pos))
 
 
 def calcToken():
     lib.CalcToken()
 
-#
+
+###
 
 
 def find(text):
     s = lib.Find(ch(text))
-    return s.freq, s.ok
+    return s.freq, bytes.decode(f_str(s.pos)), s.ok
 
 
 def arr(s):
@@ -87,16 +88,16 @@ def arr(s):
     return st.split(' ')
 
 
-def cut(sentence, hmm=False):
-    s = lib.Cut(ch(sentence), hmm)
+def cut(text, hmm=False):
+    s = lib.Cut(ch(text), hmm)
     return arr(s)
 
 
-def cutAll(sentence):
-    s = lib.CutAll(ch(sentence))
+def cutAll(text):
+    s = lib.CutAll(ch(text))
     return arr(s)
 
 
-def cutSearch(sentence, hmm=False):
-    s = lib.Cut(ch(sentence), hmm)
+def cutSearch(text, hmm=False):
+    s = lib.Cut(ch(text), hmm)
     return arr(s)

@@ -5,7 +5,7 @@ declare module "gse" {
     export function addTokenForce(text: string, freq: number, pos?: string): void;
     export function calcToken(): void;
     //
-    export function find(text: string): { freq: number, ok: boolean };
+    export function find(text: string): { freq: number, pos: string, ok: boolean };
     export function cut(sentence: string, hmm?: boolean): any;
     export function cutAll(sentence: string): any;
     export function cutSearch(sentence: string, hmm?: boolean): string[];

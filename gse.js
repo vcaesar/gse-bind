@@ -8,15 +8,16 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-// var ffi = require('ffi-napi');
-var ffi = require('ffi');
+var ffi = require('ffi-napi');
+// var ffi = require('ffi');
 const path = require('path');
 
 var Struct = require("ref-struct");
 
 //
 var findS = Struct({
-    freq: 'long',
+    freq: 'double',
+    pos: 'string',
     ok: 'bool'
 })
 
@@ -25,8 +26,8 @@ const bin = path.join(__dirname, './gse');
 var lib = ffi.Library(bin, {
     'GetVersion': ['string', []],
     'LoadDict': ['string', ['string']],
-    'AddToken': ['void', ['string', 'long', 'string']],
-    'AddTokenForce': ['void', ['string', 'long', 'string']],
+    'AddToken': ['void', ['string', 'double', 'string']],
+    'AddTokenForce': ['void', ['string', 'double', 'string']],
     'CalcToken': ['void', []],
     //
     'Find': [findS, ['string']],
@@ -59,6 +60,7 @@ function find(text) {
     var s = lib.Find(text);
     return {
         freq: s.freq,
+        pos: s.pos,
         ok: s.ok
     };
 }
